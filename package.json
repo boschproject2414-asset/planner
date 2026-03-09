@@ -1,0 +1,15 @@
+{
+  "name": "atlas-planner",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Atlas Planner monorepo runner",
+  "scripts": {
+    "setup": "python3 -m pip install -r backend/requirements.txt && npm --prefix frontend install",
+    "dev:backend": "cd backend && uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload",
+    "dev:frontend": "npm --prefix frontend run dev -- --host 0.0.0.0 --port 5173",
+    "codespace:init": "make codespace-init",
+    "codespace:backend": "make codespace-backend",
+    "codespace:frontend": "make codespace-frontend",
+    "test:backend": "cd backend && pytest -q"
+  }
+}
