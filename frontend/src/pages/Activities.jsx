@@ -14,11 +14,13 @@ export function Activities(){
     load()
   }
   return <div>
-    <h2>Activities</h2>
-    <button onClick={add}>Add Activity</button>
-    <table border='1' cellPadding='6'><thead><tr><th>ID</th><th>Phase</th><th>Name</th><th>Status</th><th>%</th><th>Planned Finish</th><th>Forecast Finish</th></tr></thead><tbody>
-      {rows.map(r=><tr key={r.id} onClick={()=>setDrawer(r)}><td>{r.id}</td><td>{r.phase}</td><td>{r.activity_name}</td><td>{r.status}</td><td>{r.percent_complete}</td><td>{r.planned_finish}</td><td>{r.forecast_finish}</td></tr>)}
-    </tbody></table>
-    {drawer && <div style={{marginTop:10,padding:10,border:'1px solid #aaa'}}><h3>Task Drawer: {drawer.activity_name}</h3><pre>{JSON.stringify(drawer,null,2)}</pre></div>}
+    <h2 className='section-title'>Activities</h2>
+    <button className='btn primary' onClick={add}>Add Activity</button>
+    <div className='table-wrap'>
+      <table><thead><tr><th>ID</th><th>Phase</th><th>Name</th><th>Status</th><th>%</th><th>Planned Finish</th><th>Forecast Finish</th></tr></thead><tbody>
+        {rows.map(r=><tr key={r.id} onClick={()=>setDrawer(r)}><td>{r.id}</td><td>{r.phase}</td><td>{r.activity_name}</td><td>{r.status}</td><td>{r.percent_complete}</td><td>{r.planned_finish}</td><td>{r.forecast_finish}</td></tr>)}
+      </tbody></table>
+    </div>
+    {drawer && <div className='drawer'><h3>Task Drawer: {drawer.activity_name}</h3><pre>{JSON.stringify(drawer,null,2)}</pre></div>}
   </div>
 }

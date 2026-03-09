@@ -11,10 +11,10 @@ export function BaselinesActions(){
     apiFetch(`/v2/projects/${id}/actions`).then(r=>r.json()).then(setActions)
   },[id])
   return <div>
-    <h2>Baselines & Actions</h2>
-    <h3>Variance</h3>
-    <pre>{JSON.stringify(variance,null,2)}</pre>
-    <h3>Actions</h3>
-    <pre>{JSON.stringify(actions,null,2)}</pre>
+    <h2 className='section-title'>Baselines & Actions</h2>
+    <div className='grid-3'>
+      <div className='card' style={{gridColumn:'span 2'}}><h3>Variance Snapshot</h3><pre>{JSON.stringify(variance,null,2)}</pre></div>
+      <div className='card'><h3>Action Items</h3><pre>{JSON.stringify(actions,null,2)}</pre></div>
+    </div>
   </div>
 }

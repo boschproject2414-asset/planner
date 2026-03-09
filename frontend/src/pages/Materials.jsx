@@ -11,10 +11,12 @@ export function Materials(){
     apiFetch(`/v2/projects/${id}/material-risks`).then(r=>r.json()).then(setRisks)
   },[id])
   return <div>
-    <h2>Material Intelligence</h2>
-    <p>At-risk materials: {risks.length}</p>
-    <table border='1' cellPadding='6'><thead><tr><th>Part</th><th>Ownership</th><th>Status</th><th>Need By</th><th>Promised</th></tr></thead><tbody>
-      {rows.map(m=><tr key={m.id}><td>{m.part_number}</td><td>{m.ownership}</td><td>{m.status}</td><td>{m.need_by_date}</td><td>{m.promised_date}</td></tr>)}
-    </tbody></table>
+    <h2 className='section-title'>Material Intelligence</h2>
+    <div className='card' style={{marginBottom:12}}>At-risk materials: <b>{risks.length}</b></div>
+    <div className='table-wrap'>
+      <table><thead><tr><th>Part</th><th>Ownership</th><th>Status</th><th>Need By</th><th>Promised</th></tr></thead><tbody>
+        {rows.map(m=><tr key={m.id}><td>{m.part_number}</td><td>{m.ownership}</td><td>{m.status}</td><td>{m.need_by_date}</td><td>{m.promised_date}</td></tr>)}
+      </tbody></table>
+    </div>
   </div>
 }
