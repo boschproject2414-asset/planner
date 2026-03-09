@@ -1,0 +1,10 @@
+{
+  "name": "atlas-planner-codespaces",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "forwardPorts": [8000, 5173],
+  "portsAttributes": {
+    "8000": {"label": "Atlas API", "onAutoForward": "openPreview"},
+    "5173": {"label": "Atlas UI", "onAutoForward": "openBrowser"}
+  },
+  "postCreateCommand": "bash scripts/codespaces_post_create.sh"
+}
